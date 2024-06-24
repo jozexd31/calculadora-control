@@ -19,14 +19,20 @@ const Calculadora = () => {
       return; // Do not add more than 10 decimal digits in the current segment
     }
 
-    setInput(input + value);
+    // If an operator is clicked after a result is shown, start new calculation with result
+    if (['/', '*', '+', '-'].includes(value) && result) {
+      setInput(result + value);
+      setResult('');
+    } else {
+      setInput(input + value);
+    }
   };
 
   const handleClear = () => {
     setInput('');
     setResult('');
   };
-  
+
   const handleClearInput = () => {
     setInput(input.slice(0, -1)); // Elimina el último carácter del input
   };
