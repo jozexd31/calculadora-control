@@ -1,0 +1,137 @@
+/* src/Calculator.css */
+
+.calculator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 70vh;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.calculator-container.light {
+  background-color: #8ec5d9;
+}
+
+.calculator-container.dark {
+  background-color: #24003c;
+}
+
+.calculadora {
+  background-color: #fcf8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.calculator-container.dark .calculadora {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
+.display {
+  display: flexbox;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.display input {
+  width: calc(100% - 70px);
+  height: 50px;
+  font-size: 20px;
+  text-align: right;
+  padding: 20px;
+  border: none;
+  border-bottom: 2px solid #000000;
+  outline: none;
+  margin-left: 2px;
+}
+
+.display .result {
+  font-size: 25px;
+  font-weight: bold;
+  border: none;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  background-color: #b1adad;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.operator {
+  background-color: #4666ff;
+  color: #fff;
+}
+
+.operator:hover {
+  background-color: #3657cc;
+}
+
+.decimal {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+
+.decimal:hover {
+  background-color: #cc5656;
+}
+
+.clear {
+  background-color: #f90202;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.clear:hover {
+  background-color: #000000;
+}
+
+.theme-toggle {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #ddd;
+}
+
+.calculator-container.dark .theme-toggle {
+  background-color: #666;
+  color: #fff;
+}
+
+.calculator-container.dark .theme-toggle:hover {
+  background-color: #555;
+}
