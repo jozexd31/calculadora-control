@@ -39,6 +39,13 @@ const Calculadora = () => {
 
   const handleCalculate = () => {
     try {
+      // Check for division by zero
+      if (input.includes('/0')) {
+        window.alert('Error: No se puede dividir para 0');
+        setInput('');
+        return;
+      }
+
       const evaluatedResult = eval(input); // eval puede ser peligroso, usa una alternativa más segura en producción
 
       // Convert result to string and check if it has more than 10 decimal places
