@@ -8,13 +8,13 @@ const Calculadora = () => {
 
   const handleClick = (value) => {
     const lastChar = input.slice(-1);
+    const newInput = input + value;
 
     // Evitar más de un punto decimal en un segmento de número
     if (value === '.' && lastChar === '.') {
       window.alert('Syntax Error');
       return;
     }
-    
 
     // Evitar dos operadores consecutivos
     if (['/', '*', '+', '-'].includes(value) && ['/', '*', '+', '-'].includes(lastChar)) {
@@ -22,7 +22,7 @@ const Calculadora = () => {
       return;
     }
 
-    setInput(input + value);
+    setInput(newInput);
   };
 
   const handleClear = () => {
@@ -45,27 +45,15 @@ const Calculadora = () => {
         return;
       }
 
-     
-
-      
       let evaluatedResult = eval(sanitizedInput); // eval puede ser peligroso, usa una alternativa más segura en producción
 
-      const lastNumberSegment = input.split(/[\+\-\*\/]/).pop();
-      const decimalIndex = lastNumberSegment.indexOf('.');
-      if (decimalIndex !== -1 && lastNumberSegment.length - decimalIndex > 10) {
-        return; // Do not add more than 10 decimal digits in the current segment
-      }
-      // Truncar el resultado de la división a dos decimales sin redondeo si es necesario
-      if (sanitizedInput.includes('/')) {
-        let resultStr = evaluatedResult.toString();
-        let decimalIndex = resultStr.indexOf('.');
-        if (decimalIndex !== -1) {
-          evaluatedResult = parseFloat(resultStr.substring(0, decimalIndex + 3)); // +3 para incluir dos dígitos después del punto
-        }
-      } else {
-        // Convertir resultado a string y verificar si tiene más de 10 decimales
-        if (typeof evaluatedResult === 'number' && !Number.isInteger(evaluatedResult)) {
-          evaluatedResult = parseFloat(evaluatedResult.toFixed(10)); // Limitar a 10 decimales
+      // Limitar el resultado a 6 dígitos totales
+      if (typeof evaluatedResult === 'number') {
+        const [integerPart, decimalPart] = evaluatedResult.toString().split('.');
+        if (integerPart.length >= 6) {
+          evaluatedResult = integerPart.slice(0, 6);
+        } else if (decimalPart) {
+          evaluatedResult = parseFloat(evaluatedResult.toFixed(6 - integerPart.length));
         }
       }
 
@@ -163,6 +151,5 @@ const Calculadora = () => {
     </div>
   );
 };
-
 
 export default Calculadora;
