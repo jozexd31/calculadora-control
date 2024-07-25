@@ -1,0 +1,36 @@
+.data-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-ul {
+  list-style: none;
+  text-align: left;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 1000px) {
+  .pokeball-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-ul {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+
+  .main-ul li {
+    margin-right: 10px;
+  }
+}

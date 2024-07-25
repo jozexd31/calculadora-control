@@ -1,0 +1,103 @@
+.App {
+  text-align: center;
+  display: flex;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App h1 {
+  font-family: "pokemon";
+  color: rgb(255, 227, 103);
+  text-shadow: 0 0 15px #000, 0 0 15px #000;
+  font-size: 4rem;
+  letter-spacing: 5px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  border-radius: 100px 0 0 100px;
+}
+
+.App-section {
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.pee-section {
+  background-color: #004aad;
+}
+
+.react-section {
+  background-color: #74b0ff;
+}
+
+.pee-main-title {
+  font-size: 20px;
+}
+
+.pee-subtitle {
+  font-size: 15px;
+}
+
+.pee-subtitle a {
+  color: #fff;
+}
+
+.App-link {
+  color: #fff;
+  font-size: 22px;
+}
+
+.row-container {
+  height: 100vh;
+}
+
+.col-container {
+  width: 500px;
+  height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  align-items: flex-start;
+  height: 65%;
+}
+
+.main-footer {
+  padding: 15px;
+}
+
+@media screen and (max-width: 700px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .App-section {
+    width: 100%;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}
